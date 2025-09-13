@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="50 15 102.89 38.67">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e2dcd4;
+      }
+
+      .cls-2 {
+        font-family: Oswald-Bold, Oswald;
+        font-size: 25.83px;
+        font-weight: 700;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #756452;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" width="212.89" height="68.67"/>
+  <text class="cls-2" transform="translate(76 42.6) scale(1.16 1)"><tspan x="0" y="0">2048</tspan></text>
+  <g>
+    <rect class="cls-3" x="60.14" y="27.71" width="10.26" height="2.03" rx=".54" ry=".54"/>
+    <rect class="cls-3" x="60.14" y="32.11" width="10.26" height="2.03" rx=".54" ry=".54"/>
+    <rect class="cls-3" x="60.14" y="36.38" width="10.26" height="2.03" rx=".54" ry=".54"/>
+  </g>
+</svg>
