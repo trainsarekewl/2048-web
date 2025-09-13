@@ -15,7 +15,7 @@ function Score() {
             <div className="score">0</div>
         </div>
         <div className="score-item" id="best-score">
-            <div className="score-header">SCORE</div>
+            <div className="score-header">BEST</div>
             <div className="score">0</div>
         </div>
     </div>
