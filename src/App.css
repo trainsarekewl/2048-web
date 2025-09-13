@@ -9,6 +9,7 @@
     grid-row: 1;
     grid-column: 1;
     justify-self: start;
+    border-radius: 10px;
 }
 
 .header .new-game {
@@ -16,6 +17,7 @@
     grid-column: 3;
     justify-self: end;
     align-items: center;
+    border-radius: 10px;
 }
 
 .title-image {
@@ -38,6 +40,7 @@
 .header .score {
     text-align: center;
     font-size: 20px;
+    border-radius: 10px;
 }
 
 .header .scores-container {
@@ -54,8 +57,8 @@
 #new-game-button {
     color: #fff;
     background-color: #988979;
-    border-radius: 10px;
     font-size: 15px;
+    border-radius: 10px;
 }
 
 #new-game-button:hover {
@@ -66,15 +69,43 @@
     background-color: #eae7d9;
     border: 2px solid transparent;
     color: #988876;
+    border-radius: 10px;
 }
 
 #best-score {
     border: 2px solid #eae7d9;
     color: #988876;
+    border-radius: 10px;
 }
 
 .score-item {
-    border-radius: 10px;
     padding: 10px 15px;
     font-weight: bolder;
+}
+
+#board {
+    margin: 0 auto;
+
+    width: 430px;
+    height: 430px;
+    background-color: #9a8778;
+
+    display: grid;
+    grid-template-rows: 100px 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px 100px;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.board-tile {
+    background-color: #bdac97;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: #776e65;
+    transition: all 0.2s ease;
+    border-radius: 10px;
 }
