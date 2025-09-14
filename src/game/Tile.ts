@@ -4,7 +4,7 @@ export class Tile {
     col: number;
     merged: boolean;
 
-    constructor(value: number, row: number, col: number) {
+    constructor(row: number, col: number, value: number) {
         this.value = value;
         this.row = row;
         this.col = col;

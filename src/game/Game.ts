@@ -23,13 +23,13 @@ export class Game {
         }
 
         const { r, c } = empty[Math.floor(Math.random() * empty.length)];
-        
+
         if (Math.random() < 0.9) {
-            this.board[r][c] = new Tile(2, r, c);
+            this.board[r][c] = new Tile(r, c, 2);
         }
 
         else {
-            this.board[r][c] = new Tile(4, r, c);
+            this.board[r][c] = new Tile(r, c, 4);
         }
     }
 
@@ -249,11 +249,14 @@ export class Game {
         const merged = this.mergeUp()
         moved = moved || this.moveUp();
 
+        this.resetMergedStatus();
+
         if (moved || merged) {
             this.addRandomTile();
+            return true;
         }
 
-        this.resetMergedStatus();
+        return false;
     }
 
     turnDown() {
@@ -261,11 +264,14 @@ export class Game {
         const merged = this.mergeDown()
         moved = moved || this.moveDown();
 
+        this.resetMergedStatus();
+
         if (moved || merged) {
             this.addRandomTile();
+            return true;
         }
 
-        this.resetMergedStatus();
+        return false;
     }
 
     turnLeft() {
@@ -273,11 +279,15 @@ export class Game {
         const merged = this.mergeLeft()
         moved = moved || this.moveLeft();
 
+        this.resetMergedStatus();
+
         if (moved || merged) {
             this.addRandomTile();
+
+            return true;
         }
 
-        this.resetMergedStatus();
+        return false;
     }
 
     turnRight() {
@@ -285,10 +295,14 @@ export class Game {
         const merged = this.mergeRight()
         moved = moved || this.moveRight();
 
+        this.resetMergedStatus();
+
         if (moved || merged) {
             this.addRandomTile();
+
+            return true;
         }
 
-        this.resetMergedStatus();
+        return false;
     }
 }
