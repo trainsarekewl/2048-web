@@ -81,6 +81,11 @@
 .score-item {
     padding: 10px 15px;
     font-weight: bolder;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #board {
@@ -104,8 +109,13 @@
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 30px;
     color: #776e65;
     transition: all 0.2s ease;
     border-radius: 10px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
