@@ -7,7 +7,7 @@ import DefaultMenu from './assets/default_menu.svg'
 import React, {useEffect, useState} from 'react';
 
 function Title() {
-    return <img src={DefaultMenu} alt="2048" className="title-image" />;
+    return <img src={DefaultMenu} alt="2048" className="title-image" draggable="false"/>;
 }
 
 function Score({score, best}: {score: number, best: number}) {

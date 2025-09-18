@@ -1,3 +1,10 @@
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -10,6 +17,12 @@
     grid-column: 1;
     justify-self: start;
     border-radius: 10px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    ;
 }
 
 .header .new-game {
@@ -113,9 +126,4 @@
     color: #776e65;
     transition: all 0.2s ease;
     border-radius: 10px;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
