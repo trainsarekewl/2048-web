@@ -305,4 +305,41 @@ export class Game {
 
         return false;
     }
+
+    checkGameOver() {
+        for (let r = 0; r < this.size; r++) {
+            for (let c = 0; c < this.size; c++) {
+                if (this.board[r][c] === null) {
+                    return false;
+                }
+            }
+        }
+
+        for (let r = 0; r < this.size; r++) {
+            for (let c = 0; c < this.size; c++) {
+                const tile = this.board[r][c];
+                if (!tile) continue;
+
+                const val = tile.getValue();
+
+                if (r + 1 < this.size) {
+                    const below = this.board[r + 1][c];
+                    if (below && below.getValue() === val) {
+                        return false;
+                    }
+                }
+
+                if (c + 1 < this.size) {
+                    const right = this.board[r][c + 1];
+                    if (right && right.getValue() === val) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        // No empties and no merges available => game over
+        return true;
+    }
+
 }
