@@ -306,7 +306,7 @@ export class Game {
         return false;
     }
 
-    checkGameOver() {
+    isGameOver() {
         for (let r = 0; r < this.size; r++) {
             for (let c = 0; c < this.size; c++) {
                 if (this.board[r][c] === null) {
@@ -325,6 +325,7 @@ export class Game {
                 if (r + 1 < this.size) {
                     const below = this.board[r + 1][c];
                     if (below && below.getValue() === val) {
+                        console.log("over")
                         return false;
                     }
                 }
@@ -332,6 +333,7 @@ export class Game {
                 if (c + 1 < this.size) {
                     const right = this.board[r][c + 1];
                     if (right && right.getValue() === val) {
+                        console.log("over")
                         return false;
                     }
                 }

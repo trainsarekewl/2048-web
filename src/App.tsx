@@ -68,15 +68,30 @@ export function App() {
     const [boardState, setBoardState] = useState(game.board);
     const [score, setScore] = useState(0);
     const [bestScore, setBestScore] = useState(0);
+    const [isGameOver, setIsGameOver] = useState(false);
 
     const updateBoard = () => {
         setBoardState([...game.board]);
         setScore(game.score);
-        setBestScore(Math.max(bestScore, game.score));
+        setBestScore(prev => Math.max(prev, game.score));
+        setIsGameOver(game.isGameOver());
     };
+
+    // load bestscore
+    useEffect(() => {
+        const savedBest = localStorage.getItem("bestScore");
+        if (savedBest) {
+            setBestScore(parseInt(savedBest, 10))
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("bestScore", bestScore.toString());
+    }, [bestScore]);
 
     useEffect(() => {
         const handleKey = (e: KeyboardEvent) => {
+            if (isGameOver) return;
             let moved = false;
             if (e.key === "ArrowUp" || e.key === "w") moved = game.turnUp();
             if (e.key === "ArrowDown" || e.key ==="s") moved = game.turnDown();
@@ -86,13 +101,14 @@ export function App() {
         };
         window.addEventListener("keydown", handleKey);
         return () => window.removeEventListener("keydown", handleKey);
-    }, [game, bestScore]);
+    }, [game, bestScore, isGameOver]);
 
     const handleNewGame = () => {
         const newGame = new Game();
         setGame(newGame);
         setBoardState(newGame.board);
         setScore(0);
+        setIsGameOver(false)
     };
 
     return (
@@ -118,6 +134,16 @@ export function App() {
                     ))}
                 </div>
             </div>
+            {isGameOver && (
+                <div className="overlay">
+                    <div className="overlay-content">
+                        <h2>Game Over</h2>
+                        <p>Score: {score}</p>
+                        <p>Best: {bestScore}</p>
+                        <button onClick={handleNewGame}>Try Again</button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
