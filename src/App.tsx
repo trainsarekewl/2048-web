@@ -2,12 +2,23 @@ import './App.css'
 import { Game } from "./game/Game";
 import { Tile } from "./game/Tile";
 
-import DefaultMenu from './assets/default_menu.svg'
+import DefaultMenu from './assets/default_menu.svg';
+import HoverMenu from './assets/hover_menu.svg';
 
 import React, {useEffect, useState} from 'react';
 
 function Title() {
-    return <img src={DefaultMenu} alt="2048" className="title-image" draggable="false"/>;
+    const [hover, setHover]  = React.useState(false);
+    return (
+        <img
+            src={hover ? HoverMenu : DefaultMenu}
+            alt="2048"
+            className="title-image"
+            draggable="false"
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+        />
+    );
 }
 
 function Score({score, best}: {score: number, best: number}) {
